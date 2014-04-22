@@ -1,5 +1,8 @@
 <form action="/players/<%=params[:id]%>" method="post">
-  <input type="text" name="player_name">
-  <input type="text" name="player_team">
+  <input type="text" placeholder="<%=@player.name%>" name="player_name">
+  <input type="text" placeholder="<%=@player.team%>" name="player_team">
   <input type="submit" value="Update">
+</form>
+<form action="/players/<%=params[:id]%>/delete" method="post">
+  <input type="submit" value="Delete">
 </form>

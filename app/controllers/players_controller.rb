@@ -23,7 +23,7 @@ class PlayersController < ApplicationController
   end
 
   def edit
-
+    @player = Player.find_by(id: params[:id])
   end
 
   def update
@@ -31,6 +31,12 @@ class PlayersController < ApplicationController
     player.name = params[:player_name]
     player.team = params[:player_team]
     player.save
+    redirect_to '/'
+  end
+
+  def delete
+    player = Player.find_by(id: params[:id])
+    player.destroy
     redirect_to '/'
   end
 

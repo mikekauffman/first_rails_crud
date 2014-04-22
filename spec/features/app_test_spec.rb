@@ -14,7 +14,7 @@ feature "Players" do
     expect(page).to have_content 'Baltimore Orioles'
   end
 
-  scenario "A Player's information can be edited" do
+  scenario "A Player's information can be edited or deleted" do
 
     visit '/'
     click_on 'Create Player'
@@ -39,6 +39,11 @@ feature "Players" do
 
     expect(page).to have_content 'David Ortiz'
     expect(page).to have_content 'Boston Red Sox'
+
+    click_on 'edit David Ortiz'
+    click_on 'Delete'
+    expect(page).to have_content 'Cal Ripken'
+    expect(page).to_not have_content 'David Ortiz'
 
   end
 
