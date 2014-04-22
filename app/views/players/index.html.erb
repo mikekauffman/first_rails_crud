@@ -1,0 +1,10 @@
+Welcome!
+
+<a href="/players/new">Create Player</a>
+<% if @players %>
+    <% @players.each do |player| %>
+        <ul>
+          <li><%= player.name %> plays for the <%= player.team %></li>
+        </ul>
+    <% end %>
+<% end %>
