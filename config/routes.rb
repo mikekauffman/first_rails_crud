@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/players/new', to: 'players#new'
   post '/players', to: 'players#create'
 
+  get '/players/:id/edit', to: 'players#edit'
+  post '/players/:id', to: 'players#update'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

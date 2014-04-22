@@ -21,4 +21,17 @@ class PlayersController < ApplicationController
 
     redirect_to '/'
   end
+
+  def edit
+
+  end
+
+  def update
+    player = Player.find_by(id: params[:id])
+    player.name = params[:player_name]
+    player.team = params[:player_team]
+    player.save
+    redirect_to '/'
+  end
+
 end
