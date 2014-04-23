@@ -11,31 +11,22 @@ class PlayersController < ApplicationController
   end
 
   def create
-    name = params[:player_name]
-    team = params[:player_team]
-
-    player = Player.new
-    player.name = name
-    player.team = team
-    player.save
-
+    Player.create(name: params[:player_name], team: params[:player_team])
     redirect_to '/'
   end
 
   def edit
-    @player = Player.find_by(id: params[:id])
+    @player = Player.find(params[:id])
   end
 
   def update
-    player = Player.find_by(id: params[:id])
-    player.name = params[:player_name]
-    player.team = params[:player_team]
-    player.save
+    player = Player.find(params[:id])
+    player.update(name: params[:player_name], team: params[:player_team])
     redirect_to '/'
   end
 
   def delete
-    player = Player.find_by(id: params[:id])
+    player = Player.find(params[:id])
     player.destroy
     redirect_to '/'
   end
