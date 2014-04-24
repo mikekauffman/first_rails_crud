@@ -1,13 +1,16 @@
 Rails.application.routes.draw do
 
-  get '/', to: 'players#index'
+  root 'welcome#index'
+
+  get '/players', to: 'players#index'
 
   get '/players/new', to: 'players#new'
   post '/players', to: 'players#create'
 
+  get 'players/:id', to: 'players#show'
   get '/players/:id/edit', to: 'players#edit'
-  post '/players/:id', to: 'players#update'
-  post '/players/:id/delete', to: 'players#delete'
+  put '/players/:id', to: 'players#update'
+  delete '/players/:id', to: 'players#destroy'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

@@ -1,10 +1,8 @@
-Welcome!
-
 <a href="/players/new">Create Player</a>
 <% if @players %>
     <% @players.each do |player| %>
         <ul>
-          <li><%= player.name %> plays for the <%= player.team %> -- <a href="/players/<%= player.id %>/edit">edit <%= player.name %></a></li>
+          <li><%= player.name %> plays for the <%= player.team %> -- <a href="/players/<%= player.id %>"><%= player.name %> details</a></li>
         </ul>
     <% end %>
 <% end %>
